@@ -38,9 +38,14 @@ class TestCommand extends Command
      */
     public function handle()
     {
-        $players = Player::where('name', '酒井')->get();
-        foreach($players as $player) {
-            echo $player->name."\n";
+        try {
+            $players = Player::where('name', '酒井')->get();
+            foreach($players as $player) {
+                echo $player->name."\n";
+            }
+        } catch(Throwable $e) {
+            report($e);
+            return 1;
         }
         return 0;
     }
