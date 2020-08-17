@@ -24,15 +24,15 @@ DROP TABLE IF EXISTS `countries`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `countries` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50),
-  `ranking` int(11),
-  `group_name` varchar(1),
+  `name` varchar(50) DEFAULT NULL,
+  `ranking` int(11) DEFAULT NULL,
+  `group_name` varchar(1) DEFAULT NULL,
   `expired_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,15 +44,15 @@ DROP TABLE IF EXISTS `goals`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `goals` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `pairing_id` int(11),
-  `player_id` int(11),
-  `goal_time` varchar(10),
+  `pairing_id` int(11) DEFAULT NULL,
+  `player_id` int(11) DEFAULT NULL,
+  `goal_time` varchar(10) DEFAULT NULL,
   `expired_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=256 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,9 +63,9 @@ DROP TABLE IF EXISTS `goals_tmp`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `goals_tmp` (
-  `my_country` varchar(50),
-  `enemy_country` varchar(50),
-  `goal_time` varchar(10),
+  `my_country` varchar(50) DEFAULT NULL,
+  `enemy_country` varchar(50) DEFAULT NULL,
+  `goal_time` varchar(10) DEFAULT NULL,
   `player_name` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -79,15 +79,15 @@ DROP TABLE IF EXISTS `pairings`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pairings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `kickoff` datetime,
-  `my_country_id` int(11),
-  `enemy_country_id` int(11),
+  `kickoff` datetime DEFAULT NULL,
+  `my_country_id` int(11) DEFAULT NULL,
+  `enemy_country_id` int(11) DEFAULT NULL,
   `expired_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=256 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,8 +98,8 @@ DROP TABLE IF EXISTS `pairings_tmp`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pairings_tmp` (
-  `kickoff` datetime,
-  `my_country` varchar(50),
+  `kickoff` datetime DEFAULT NULL,
+  `my_country` varchar(50) DEFAULT NULL,
   `enemy_country` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -113,20 +113,20 @@ DROP TABLE IF EXISTS `players`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `players` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `country_id` int(11),
-  `uniform_num` int(11),
-  `position` varchar(2),
-  `name` varchar(50),
-  `club` varchar(50),
-  `birth` date,
-  `height` int(11),
-  `weight` int(11),
-  `expired_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `deleted_at` timestamp DEFAULT NULL,
-  `updated_at` timestamp DEFAULT NULL,
-  `created_at` timestamp DEFAULT NULL,
+  `country_id` int(11) DEFAULT NULL,
+  `uniform_num` int(11) DEFAULT NULL,
+  `position` varchar(2) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `club` varchar(50) DEFAULT NULL,
+  `birth` date DEFAULT NULL,
+  `height` int(11) DEFAULT NULL,
+  `weight` int(11) DEFAULT NULL,
+  `expired_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1024 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -137,13 +137,13 @@ DROP TABLE IF EXISTS `players_tmp`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `players_tmp` (
-  `country` varchar(50),
-  `uniform_num` int(11),
-  `position` varchar(2),
-  `name` varchar(50),
-  `club` varchar(50),
-  `birth` date,
-  `height` int(11),
+  `country` varchar(50) DEFAULT NULL,
+  `uniform_num` int(11) DEFAULT NULL,
+  `position` varchar(2) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `club` varchar(50) DEFAULT NULL,
+  `birth` date DEFAULT NULL,
+  `height` int(11) DEFAULT NULL,
   `weight` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -157,4 +157,4 @@ CREATE TABLE `players_tmp` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-15 21:03:25
+-- Dump completed on 2020-08-17 23:07:48
