@@ -10,7 +10,7 @@ class Player extends Model
     protected $table = "players";
     protected $dates = ["expired_at", "deleted_at", "updated_at", "created_at"];
 
-    public static function getPlayers($paginate_limit) {
+    public static function getWithContory($paginate_limit) {
         return self::from('players as p')
             ->select('p.*', 'c.name as c_name')
             ->leftjoin('countries as c', 'p.country_id', '=', 'c.id')

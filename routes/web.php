@@ -19,4 +19,8 @@ Route::get('/', function () {
 });
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'WelcomeController@index');
+Route::resource('players', 'PlayerController');
+Route::resource('countries', 'CountryController');
+Route::resource('goals', 'GoalController');
+Route::resource('pairings', 'PairingController');
