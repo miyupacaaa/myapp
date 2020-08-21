@@ -101,6 +101,7 @@
                             <th scope="col">birth</th>
                             <th scope="col">height</th>
                             <th scope="col">weight</th>
+                            <th scope="col">total_goals</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -115,6 +116,7 @@
                             <td>{{ $player->birth }}</td>
                             <td>{{ $player->height }}</td>
                             <td>{{ $player->weight }}</td>
+                            <td>{{ $player->t_goals }}</td>
                         </tr>
                         @endforeach
                     </tbody>
